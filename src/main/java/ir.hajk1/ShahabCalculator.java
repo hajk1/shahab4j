@@ -25,10 +25,10 @@ public class ShahabCalculator {
   private final PersonType personType;
 
 
-  public ShahabCalculator(String nationalCode) throws Exception {
+  public ShahabCalculator(String nationalCode) throws ShahbException {
     this.nationalCode = nationalCode;
     if (nationalCode == null) {
-      throw new Exception("Null value is not acceptable");
+      throw new ShahbException("Null value is not acceptable");
     }
     short len = (short) nationalCode.length();
     if (len == REAL_PERSON_NATIONAL_LEN) {
@@ -36,7 +36,7 @@ public class ShahabCalculator {
     } else if (len == LEGAL_PERSON_NATIONAL_LEN) {
       personType = CORPORATE;
     } else {
-      throw new Exception("Unable to calculate shahab for nationalCode len :" + len);
+      throw new ShahbException("Unable to calculate shahab for nationalCode len :" + len);
     }
   }
 
