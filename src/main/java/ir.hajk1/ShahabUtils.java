@@ -5,14 +5,14 @@ package ir.hajk1;
  *
  * Description: <the description of the class for java doc by those that might use it, please use html if possible>
  */
-public class ShahbUtil {
+public class ShahabUtils {
 
   /**
    * @param nationalNumber National Code for real person or National Id for the corporate person
    * @return Shahab Code
    * @
    */
-  static String calculate(String nationalNumber) throws Exception {
+  public static String calculate(String nationalNumber) throws Exception {
     return new ShahabCalculator(nationalNumber).getShahabCode();
   }
 

@@ -31,7 +31,7 @@ public class ShahabCalculatorTest {
 
   @Test
   public void staticCalculator() throws Exception {
-    Assertions.assertEquals(realShahabCode1, ShahbUtil.calculate(nationalCode1));
+    Assertions.assertEquals(realShahabCode1, ShahabUtils.calculate(nationalCode1));
   }
 
 }
