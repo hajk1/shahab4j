@@ -4,20 +4,6 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <artifactId>shahab-calculator</artifactId>
 
-  <dependencies>
-    <dependency>
-      <artifactId>junit-jupiter</artifactId>
-      <groupId>org.junit.jupiter</groupId>
-      <scope>test</scope>
-      <version>5.5.2</version>
-    </dependency>
-    <!-- https://mvnrepository.com/artifact/commons-validator/commons-validator -->
-    <dependency>
-      <artifactId>commons-validator</artifactId>
-      <groupId>commons-validator</groupId>
-      <version>1.7</version>
-    </dependency>
-  </dependencies>
   <groupId>ir.hajk1</groupId>
   <modelVersion>4.0.0</modelVersion>
   <version>1.0.0-RELEASE</version>
@@ -35,8 +21,56 @@
         </configuration>
         <version>3.8.1</version>
       </plugin>
+
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>2.22.2</version>
+      </plugin>
+
     </plugins>
   </build>
+  <dependencies>
+    <dependency>
+      <artifactId>junit-jupiter</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+      <scope>test</scope>
+      <version>5.5.2</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/commons-validator/commons-validator -->
+    <dependency>
+      <artifactId>commons-validator</artifactId>
+      <groupId>commons-validator</groupId>
+      <version>1.7</version>
+    </dependency>
+  </dependencies>
+  <description>A Java library for Shahab Code generation.</description>
+
+  <developers>
+    <developer>
+      <name>Kayvan Tehrani</name>
+    </developer>
+  </developers>
+
+  <licenses>
+    <license>
+      <distribution>repo</distribution>
+      <name>Apache License 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+    </license>
+  </licenses>
+
+  <name>shahab4j</name>
+
+
+  <scm>
+    <connection>scm:git@github.com:hajk1/shahab4j.git</connection>
+    <developerConnection>scm:git@github.com:hajk1/shahab4j.git</developerConnection>
+    <tag>HEAD</tag>
+    <url>git@github.com/hajk1/shahab4j</url>
+  </scm>
+
+  <url>http://hajk1.ir</url>
 
   <properties>
     <java.version>1.8</java.version>
