@@ -18,15 +18,15 @@ public class ShahabCalculatorTest {
   @Test
   public void realPersonCalculator() throws Exception {
     ShahabCalculator shahabCalculator = new ShahabCalculator(nationalCode1);
-    Assertions.assertEquals(shahabCalculator.getShahabCode(), realShahabCode1);
+    Assertions.assertEquals(realShahabCode1, shahabCalculator.getShahabCode());
     shahabCalculator = new ShahabCalculator(nationalCode2);
-    Assertions.assertEquals(shahabCalculator.getShahabCode(), realShahabCode2);
+    Assertions.assertEquals(realShahabCode2, shahabCalculator.getShahabCode());
   }
 
   @Test
   public void legalPersonCalculator() throws Exception {
     ShahabCalculator shahabCalculator = new ShahabCalculator(nationalId);
-    Assertions.assertEquals(shahabCalculator.getShahabCode(), legalShahabCode);
+    Assertions.assertEquals(legalShahabCode, shahabCalculator.getShahabCode());
   }
 
 }
