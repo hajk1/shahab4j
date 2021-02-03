@@ -29,4 +29,9 @@ public class ShahabCalculatorTest {
     Assertions.assertEquals(legalShahabCode, shahabCalculator.getShahabCode());
   }
 
+  @Test
+  public void staticCalculator() throws Exception {
+    Assertions.assertEquals(realShahabCode1, ShahbUtil.calculate(nationalCode1));
+  }
+
 }
