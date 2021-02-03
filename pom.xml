@@ -2,8 +2,34 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <artifactId>shahab-caclculator</artifactId>
+  <artifactId>shahab-calculator</artifactId>
 
+  <groupId>ir.hajk1</groupId>
+  <modelVersion>4.0.0</modelVersion>
+  <version>1.0.0-RELEASE</version>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <encoding>utf-8</encoding>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+          <testSource>${java.version}</testSource>
+          <testTarget>${java.version}</testTarget>
+        </configuration>
+        <version>3.8.1</version>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>2.22.2</version>
+      </plugin>
+
+    </plugins>
+  </build>
   <dependencies>
     <dependency>
       <artifactId>junit-jupiter</artifactId>
@@ -18,9 +44,35 @@
       <version>1.7</version>
     </dependency>
   </dependencies>
-  <groupId>ir.hajk1</groupId>
-  <modelVersion>4.0.0</modelVersion>
-  <version>1.0.0-RELEASE</version>
+  <description>A Java library for Shahab Code generation.</description>
+
+  <developers>
+    <developer>
+      <name>Kayvan Tehrani</name>
+    </developer>
+  </developers>
+
+  <licenses>
+    <license>
+      <distribution>repo</distribution>
+      <name>Apache License 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+    </license>
+  </licenses>
+
+  <name>shahab4j</name>
 
 
+  <scm>
+    <connection>scm:git@github.com:hajk1/shahab4j.git</connection>
+    <developerConnection>scm:git@github.com:hajk1/shahab4j.git</developerConnection>
+    <tag>HEAD</tag>
+    <url>git@github.com/hajk1/shahab4j</url>
+  </scm>
+
+  <url>http://hajk1.ir</url>
+
+  <properties>
+    <java.version>1.8</java.version>
+  </properties>
 </project>
