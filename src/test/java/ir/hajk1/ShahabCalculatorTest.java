@@ -13,6 +13,7 @@ public class ShahabCalculatorTest {
   String nationalCode1 = "0068245300", realShahabCode1 = "1000000068245303";
   String nationalCode2 = "0062091298", realShahabCode2 = "1000000062091299";
   String nationalId = "10100978129", legalShahabCode = "2000010100978125";
+  String foreignNationalId = "009220569927", foreignShahabCode = "3000000922056994";
 
 
   @Test
@@ -27,6 +28,12 @@ public class ShahabCalculatorTest {
   public void legalPersonCalculator() throws Exception {
     ShahabCalculator shahabCalculator = new ShahabCalculator(nationalId);
     Assertions.assertEquals(legalShahabCode, shahabCalculator.getShahabCode());
+  }
+
+  @Test
+  public void realForeignPersonCalculator() throws Exception {
+    ShahabCalculator shahabCalculator = new ShahabCalculator(foreignNationalId);
+    Assertions.assertEquals(foreignShahabCode, shahabCalculator.getShahabCode());
   }
 
   @Test

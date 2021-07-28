@@ -7,5 +7,6 @@ package ir.hajk1;
  */
 public enum PersonType {
   REAL,
-  CORPORATE
+  CORPORATE,
+  REAL_FOREIGNER
 }
