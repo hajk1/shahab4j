@@ -6,8 +6,6 @@
 
   <groupId>ir.hajk1</groupId>
   <modelVersion>4.0.0</modelVersion>
-  <version>1.0.0-RELEASE</version>
-
   <build>
     <plugins>
       <plugin>
