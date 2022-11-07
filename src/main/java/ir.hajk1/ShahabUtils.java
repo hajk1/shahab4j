@@ -16,4 +16,8 @@ public class ShahabUtils {
     return new ShahabCalculator(nationalNumber).getShahabCode();
   }
 
+  public static String calculate(String nationalNumber,PersonType type) throws Exception {
+    return new ShahabCalculator(nationalNumber,type).getShahabCode();
+  }
+
 }

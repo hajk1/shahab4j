@@ -14,6 +14,7 @@ public class ShahabCalculatorTest {
   String nationalCode2 = "0062091298", realShahabCode2 = "1000000062091299";
   String nationalId = "10100978129", legalShahabCode = "2000010100978125";
   String foreignNationalId = "009220569927", foreignShahabCode = "3000000922056994";
+  String legalForeignNationalId = "203120758123", legalForeignShahabCode = "4002031207581237";
 
 
   @Test
@@ -32,13 +33,24 @@ public class ShahabCalculatorTest {
 
   @Test
   public void realForeignPersonCalculator() throws Exception {
-    ShahabCalculator shahabCalculator = new ShahabCalculator(foreignNationalId);
+    ShahabCalculator shahabCalculator = new ShahabCalculator(foreignNationalId,PersonType.REAL_FOREIGNER);
     Assertions.assertEquals(foreignShahabCode, shahabCalculator.getShahabCode());
+  }
+
+  @Test
+  public void legalForeignPersonCalculator() throws Exception {
+    ShahabCalculator shahabCalculator = new ShahabCalculator(legalForeignNationalId,PersonType.LEGAL_FOREIGNER);
+    Assertions.assertEquals(legalForeignShahabCode, shahabCalculator.getShahabCode());
   }
 
   @Test
   public void staticCalculator() throws Exception {
     Assertions.assertEquals(realShahabCode1, ShahabUtils.calculate(nationalCode1));
+  }
+
+  @Test
+  public void staticForeignerCalculator() throws Exception {
+    Assertions.assertEquals(foreignShahabCode, ShahabUtils.calculate(foreignNationalId,PersonType.REAL_FOREIGNER));
   }
 
 }

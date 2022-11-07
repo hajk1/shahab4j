@@ -17,15 +17,19 @@ public class ShahabCalculator {
   public static final Short REAL_PERSON_NATIONAL_LEN = 10;
   public static final Short LEGAL_PERSON_NATIONAL_LEN = 11;
   public static final Short REAL_FOREIGNER_LEN = 12;
+  public static final Short LEGAL_FOREIGNER_LEN = 12;
   public static final String REAL_SHAHAB_PREFIX = "100000";
   public static final String LEGAL_SHAHAB_PREFIX = "20000";
   public static final String REAL_FOREIGNER_SHAHAB_PREFIX = "30000";
+  public static final String LEGAL_FOREIGNER_SHAHAB_PREFIX = "400";
   public static final short NATIONAL_CODE_START = 0;
   public static final short NATIONAL_CODE_END = 9;
   public static final short NATIONAL_ID_START = 0;
   public static final short NATIONAL_ID_END = 10;
   public static final short FOREIGN_ID_START = 0;
   public static final short FOREIGN_ID_END = 10;
+  public static final short LEGAL_FOREIGN_ID_START = 0;
+  public static final short LEGAL_FOREIGN_ID_END = 12;
   private final String nationalCode;
   private final PersonType personType;
 
@@ -41,10 +45,20 @@ public class ShahabCalculator {
     } else if (len == LEGAL_PERSON_NATIONAL_LEN) {
       personType = CORPORATE;
     } else if (len == REAL_FOREIGNER_LEN) {
-      personType = REAL_FOREIGNER;
+      throw new ShahbException("Foreign person type must be determined");
     } else {
       throw new ShahbException("Unable to calculate shahab for nationalCode len :" + len);
     }
+  }
+  public ShahabCalculator(String nationalCode,PersonType type) throws ShahbException {
+    this.nationalCode = nationalCode;
+    if (nationalCode == null) {
+      throw new ShahbException("Null value is not acceptable");
+    }
+    if (type == null) {
+      throw new ShahbException("Null value is not acceptable");
+    }
+ personType = type;
   }
 
   public String getShahabCode() throws Exception {
@@ -55,8 +69,17 @@ public class ShahabCalculator {
         return legalPersonCalculate();
       case REAL_FOREIGNER:
         return realForeignerCalculate();
+      case LEGAL_FOREIGNER:
+        return legalForeignerCalculate();
     }
     throw new Exception("Unknown person type found:" + personType);
+  }
+
+  private String legalForeignerCalculate() throws CheckDigitException {
+    String legalForeignPersonShahab =
+            LEGAL_FOREIGNER_SHAHAB_PREFIX + nationalCode.substring(LEGAL_FOREIGN_ID_START, LEGAL_FOREIGN_ID_END);
+    String checkDigit = new VerhoeffCheckDigit().calculate(legalForeignPersonShahab);
+    return legalForeignPersonShahab + checkDigit;
   }
 
   private String realForeignerCalculate() throws CheckDigitException {
